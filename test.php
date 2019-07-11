@@ -5,9 +5,14 @@
 <h1>My first PHP page</h1>
 
 <?php
-ECHO "Hello World!<br>";
-echo "Hello World!<br>";
-EcHo "Hello World!<br>";
+
+$txt = "Hello World!";
+$x=5;
+$y=10.5;
+
+echo $txt .'<br>';
+echo $x.'<br>';
+echo $y.'<br>';
 
 ?>
 
