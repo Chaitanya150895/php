@@ -5,8 +5,7 @@
 <h1>My first PHP page</h1>
 
 <?php
-echo str_word_count("Hello World"); //
-?>
+echo strrev("Hello world!"); // outputs !dlrow olleH?>
 
 </body>
 </html>
