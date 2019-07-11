@@ -6,13 +6,10 @@
 
 <?php
 
-$txt = "Hello World!";
-$x=5;
-$y=10.5;
+$txt = "PHP!";
 
-echo $txt .'<br>';
-echo $x.'<br>';
-echo $y.'<br>';
+
+echo "I LOVE $txt";
 
 ?>
 
