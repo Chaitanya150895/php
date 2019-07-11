@@ -5,13 +5,16 @@
 <h1>My first PHP page</h1>
 
 <?php
-$x=5;
-$y=4;
+$x=5; //global scope
 
-echo $x.'<br>'; 
-echo $y .'<br>';
+function myTest(){
+    //using x inside this function will generate this error
+    echo "<p>Variable c inside function is: $x </p>";
+}
 
-echo "Total is " .($x + $y);
+myTest();
+
+echo "<p>Variable x outside function is : $x</p>"
 ?>
 
 </body>
