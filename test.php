@@ -5,12 +5,9 @@
 <h1>My first PHP page</h1>
 
 <?php
-$x = "Hello world!";
-$y = 'Hello world!';
-
-echo $x;
-echo "<br>"; 
-echo $y;
+$x =['asdfghj'=>83797]; //array and it's value at the firat position
+echo json_encode ($x); //Associative array converted into json
+//var_dump($x);
 ?>
 
 </body>
