@@ -6,10 +6,10 @@
 
 <?php
 
-$txt = "PHP!";
+$txt = "PHP";
 
 
-echo "I LOVE $txt";
+echo "I LOVE " .$txt. "!";
 
 ?>
 
