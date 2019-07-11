@@ -5,7 +5,7 @@
 <h1>My first PHP page</h1>
 
 <?php
-echo strrev("Hello world!"); // outputs !dlrow olleH?>
+echo strpos("Hello world!", "world"); // outputs 6
 
 </body>
 </html>
