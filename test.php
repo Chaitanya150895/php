@@ -5,7 +5,7 @@
 <h1>My first PHP page</h1>
 
 <?php
-$x = "5985";
+$x = 5985;
 var_dump($x);
 ?>
 
