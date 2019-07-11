@@ -5,7 +5,7 @@
 <h1>My first PHP page</h1>
 
 <?php
-$x =['asdfghj'=>83797];
+$x = "ertuiopofr";
 var_dump($x);
 ?>
 
