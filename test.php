@@ -5,7 +5,7 @@
 <h1>My first PHP page</h1>
 
 <?php
-echo strpos("Hello world!", "world"); // outputs 6
-
+echo str_replace("world", "Dolly", "Hello world!"); // outputs Hello Dolly!
+?>
 </body>
 </html>
