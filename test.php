@@ -5,10 +5,11 @@
 <h1>My first PHP page</h1>
 
 <?php
-$x = 100;  
-$y = "100";
+$x = 100;
+$y = "101";
 
-var_dump($x != $y); // returns false because values are equal
+var_dump($x <> $y); //returns false because values are equal
+
 
 ?>
 </body>
