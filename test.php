@@ -5,12 +5,10 @@
 <h1>My first PHP page</h1>
 
 <?php
-$x = 100;  
 
-if ($x !== 90) {
-    echo "Hello world!";
-
-}
+$txt1 = "Hello";
+$txt2 = " world!";
+echo $txt1 . $txt2;
 
 ?>
 </body>
