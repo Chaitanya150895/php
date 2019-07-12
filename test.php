@@ -1,20 +1,34 @@
-<!DOCTYPE html>
 <html>
 <body>
 
-<h1>My first PHP page</h1>
-<?php 
-echo $_SERVER['PHP_SELF'];
+<?php
+
+$name = $_POST['name'];
+$email =  $_POST["email"];
+
+echo "Welcome";
+
 echo "<br>";
-echo $_SERVER['SERVER_NAME'];
+
+if ($name == "") {
+    echo "Please Enter the Name<br>";
+    // echo strrchr("$name","world");
+}
+else {
+    echo $_POST["name"]; 
+}
+
 echo "<br>";
-echo $_SERVER['HTTP_HOST'];
-echo "<br>";
-echo $_SERVER['HTTP_REFERER'];
-echo "<br>";
-echo $_SERVER['HTTP_USER_AGENT'];
-echo "<br>";
-echo $_SERVER['SCRIPT_NAME'];
+
+if ($email == "") {
+    echo "Please Enter the Email";
+}
+else {
+    echo $_POST["email"]; 
+}
+
+
 ?>
+
 </body>
 </html>
