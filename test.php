@@ -8,8 +8,8 @@
 $x = 100;  
 $y= 50;
 
-if ($x == 100 || $y == 50){
-    echo "x = 100 or y = 50";
+if ($x == 100 xor $y == 80){
+    echo "either x = 100 or y = 50";
 }
 
 ?>
