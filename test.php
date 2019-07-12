@@ -5,12 +5,11 @@
 <h1>My first PHP page</h1>
 
 <?php
-$x = 1; 
+$colors = array("red", "green", "blue", "yellow"); 
 
-while($x <= 5) {
-    echo "The number is: $x <br>";
-    $x++;
-} 
+foreach ($colors as $value) {
+    echo "$value <br>";
+}
 ?>
 </body>
 </html>
