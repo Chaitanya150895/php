@@ -5,7 +5,9 @@
 <h1>My first PHP page</h1>
 
 <?php
-echo str_replace("world", "Dolly", "Hello world!"); // outputs Hello Dolly!
+// case-sensitive constant name
+define("GREETING", "Welcome to W3Schools.com!");
+echo GREETING;
 ?>
 </body>
 </html>
