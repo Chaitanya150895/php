@@ -5,8 +5,13 @@
 <h1>My first PHP page</h1>
 
 <?php
-$x = 10;  
-echo $x--;
+$x = 100;  
+$y= 50;
+
+if ($x == 100 and $y == 50){
+    echo "x = 100 and y = 50";
+}
+
 ?>
 </body>
 </html>
