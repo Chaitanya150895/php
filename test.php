@@ -5,7 +5,9 @@
 <h1>My first PHP page</h1>
 
 <?php
-$x = 10;  
+$x = 20;  
+$x += 100;
+
 echo $x;
 
 ?>
