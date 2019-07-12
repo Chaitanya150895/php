@@ -6,10 +6,10 @@
 
 <?php
 $x = 100;  
-$y= 50;
 
-if ($x == 100 xor $y == 80){
-    echo "either x = 100 or y = 50";
+if ($x !== 90) {
+    echo "Hello world!";
+
 }
 
 ?>
