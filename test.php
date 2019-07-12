@@ -5,14 +5,10 @@
 <h1>My first PHP page</h1>
 
 <?php
-define("GREETING", "Welcome to PHP");
+$x = 10;  
+$y = 6;
 
-function myTest(){
-
-    echo GREETING;
-}
-
-myTest();
+echo $x ** $y;
 
 ?>
 </body>
