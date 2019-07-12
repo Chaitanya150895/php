@@ -7,10 +7,11 @@
 <?php
 
 $age = array ("Peter" => "35", "Ben" => "37", "Joe" => "48");
-echo "Peter is" .$age['Peter']. "years old." .'<br>';
-echo "Ben is" .$age['Ben']. "years old." .'<br>';
-echo "Joe is" .$age['Joe']. "years old.";
 
+foreach ($age as $x => $x_value) {
+echo "Key=" .$x. ", Value=" .$x_value;
+echo "<br>";
+}
 ?>
 </body>
 </html>
