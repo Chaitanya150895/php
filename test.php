@@ -5,10 +5,10 @@
 <h1>My first PHP page</h1>
 
 <?php
-$x = 18;
-$x %= 4;
+$x = 100;  
+$y = "100";
 
-echo $x;
+var_dump($x == $y); // returns true because values are equal
 ?>
 </body>
 </html>
