@@ -1,15 +1,16 @@
 <?php
-setcookie("test_cookie", "test", time() + 3600, '/');
+session_start();
 ?>
+<!DOCTYPE html>
 <html>
 <body>
 
 <?php
-if(count($_COOKIE) > 0) {
-    echo "Cookies are enabled.";
-} else {
-    echo "Cookies are disabled.";
-}
+// remove all session variables
+session_unset(); 
+
+// destroy the session 
+session_destroy(); 
 ?>
 
 </body>
