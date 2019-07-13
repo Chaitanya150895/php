@@ -10,7 +10,12 @@
 <?php
 
 echo "Today is ". date("d/m/Y")."<br>";
-echo "Today is " . date("l");
+echo "Today is " . date("l")."<br>";
+echo "The time is " . date("h:i:sa");
+
+
+
+
 ?>
 
 </body>
