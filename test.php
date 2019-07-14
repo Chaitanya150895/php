@@ -1,13 +1,7 @@
 <?php
-$url = "https://www.w3schools.com";
-
-// Remove all illegal characters from a url
-$url = filter_var($url, FILTER_SANITIZE_URL);
-
-// Validate url
-if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
-    echo("$url is a valid URL");
+if(!file_exists("welcome.txt")) {
+  die("File not found");
 } else {
-    echo("$url is not a valid URL");
+  $file=fopen("welcome.txt","r");
 }
 ?>
