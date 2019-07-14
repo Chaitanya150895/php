@@ -1,13 +1,13 @@
 <?php
-$email = "john.doe@example.com";
+$url = "https://www.w3schools.com";
 
-// Remove all illegal characters from email
-$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+// Remove all illegal characters from a url
+$url = filter_var($url, FILTER_SANITIZE_URL);
 
-// Validate e-mail
-if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-    echo("$email is a valid email address");
+// Validate url
+if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
+    echo("$url is a valid URL");
 } else {
-    echo("$email is not a valid email address");
+    echo("$url is not a valid URL");
 }
 ?>
