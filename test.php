@@ -4,22 +4,20 @@ $username = "root";
 $password = "";
 $dbname = "myDB";
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
 
-    // sql to delete a record
-    $sql = "DELETE FROM MyGuests WHERE id=1";
+$sql = "UPDATE MyGuests SET lastname='Pande' WHERE id=4";
 
-    // use exec() because no results are returned
-    $conn->exec($sql);
-    echo "Record deleted successfully";
-    }
-catch(PDOException $e)
-    {
-    echo $sql . "<br>" . $e->getMessage();
-    }
+if ($conn->query($sql) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
 
-$conn = null;
+$conn->close();
 ?>
