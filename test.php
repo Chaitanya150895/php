@@ -4,41 +4,24 @@ $username = "root";
 $password = "";
 $dbname = "myDB";
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
 
-    // prepare sql and bind parameters
-    $stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) 
-    VALUES (:firstname, :lastname, :email)");
-    $stmt->bindParam(':firstname', $firstname);
-    $stmt->bindParam(':lastname', $lastname);
-    $stmt->bindParam(':email', $email);
+$sql = "SELECT id, firstname, lastname FROM MyGuests";
+$result = $conn->query($sql);
 
-    // insert a row
-    $firstname = "John";
-    $lastname = "Doe";
-    $email = "john@example.com";
-    $stmt->execute();
-
-    // insert another row
-    $firstname = "Mary";
-    $lastname = "Moe";
-    $email = "mary@example.com";
-    $stmt->execute();
-
-    // insert another row
-    $firstname = "Julie";
-    $lastname = "Dooley";
-    $email = "julie@example.com";
-    $stmt->execute();
-
-    echo "New records created successfully";
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<br> id: ". $row["id"]. " - Name: ". $row["firstname"]. " " . $row["lastname"] . "<br>";
     }
-catch(PDOException $e)
-    {
-    echo "Error: " . $e->getMessage();
-    }
-$conn = null;
-?>
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?> 
