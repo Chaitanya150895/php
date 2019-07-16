@@ -4,25 +4,31 @@ $username = "root";
 $password = "";
 $dbname = "myDB";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('John', 'Doe', 'john@example.com');";
-$sql .= "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('Mary', 'Moe', 'mary@example.com');";
-$sql .= "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('Julie', 'Dooley', 'julie@example.com')";
+    // begin the transaction
+    $conn->beginTransaction();
+    // our SQL statements
+    $conn->exec("INSERT INTO MyGuests (firstname, lastname, email) 
+    VALUES ('John', 'Doe', 'john@example.com')");
+    $conn->exec("INSERT INTO MyGuests (firstname, lastname, email) 
+    VALUES ('Mary', 'Moe', 'mary@example.com')");
+    $conn->exec("INSERT INTO MyGuests (firstname, lastname, email) 
+    VALUES ('Julie', 'Dooley', 'julie@example.com')");
 
-if (mysqli_multi_query($conn, $sql)) {
+    // commit the transaction
+    $conn->commit();
     echo "New records created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
+    }
+catch(PDOException $e)
+    {
+    // roll back the transaction if something failed
+    $conn->rollback();
+    echo "Error: " . $e->getMessage();
+    }
 
-mysqli_close($conn);
+$conn = null;
 ?>
