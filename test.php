@@ -4,31 +4,36 @@ $username = "root";
 $password = "";
 $dbname = "myDB";
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    // begin the transaction
-    $conn->beginTransaction();
-    // our SQL statements
-    $conn->exec("INSERT INTO MyGuests (firstname, lastname, email) 
-    VALUES ('John', 'Doe', 'john@example.com')");
-    $conn->exec("INSERT INTO MyGuests (firstname, lastname, email) 
-    VALUES ('Mary', 'Moe', 'mary@example.com')");
-    $conn->exec("INSERT INTO MyGuests (firstname, lastname, email) 
-    VALUES ('Julie', 'Dooley', 'julie@example.com')");
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-    // commit the transaction
-    $conn->commit();
-    echo "New records created successfully";
-    }
-catch(PDOException $e)
-    {
-    // roll back the transaction if something failed
-    $conn->rollback();
-    echo "Error: " . $e->getMessage();
-    }
+// prepare and bind
+$stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $firstname, $lastname, $email);
 
-$conn = null;
+// set parameters and execute
+$firstname = "John";
+$lastname = "Doe";
+$email = "john@example.com";
+$stmt->execute();
+
+$firstname = "Mary";
+$lastname = "Moe";
+$email = "mary@example.com";
+$stmt->execute();
+
+$firstname = "Julie";
+$lastname = "Dooley";
+$email = "julie@example.com";
+$stmt->execute();
+
+echo "New records created successfully";
+
+$stmt->close();
+$conn->close();
 ?>
