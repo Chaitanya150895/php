@@ -5,11 +5,11 @@ $password = "";
 $dbname = "myDB";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 $sql = "INSERT INTO MyGuests (firstname, lastname, email)
 VALUES ('John', 'Doe', 'john@example.com');";
@@ -18,11 +18,11 @@ VALUES ('Mary', 'Moe', 'mary@example.com');";
 $sql .= "INSERT INTO MyGuests (firstname, lastname, email)
 VALUES ('Julie', 'Dooley', 'julie@example.com')";
 
-if ($conn->multi_query($sql) === TRUE) {
+if (mysqli_multi_query($conn, $sql)) {
     echo "New records created successfully";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
-$conn->close();
+mysqli_close($conn);
 ?>
